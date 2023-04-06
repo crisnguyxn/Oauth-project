@@ -15,6 +15,14 @@ router.get('/google',passport.authenticate('google',{
     scope:['profile']
 }))
 
+router.get('/facebook',passport.authenticate('facebook',{
+    scope:['profile']
+}))
+
+router.get('/facebook/redirect',passport.authenticate('facebook'),(req,res) => {
+    console.log('check');
+})
+
 router.get('/google/redirect',passport.authenticate('google'),(req,res) => {
     res.redirect('/profile')
 })
